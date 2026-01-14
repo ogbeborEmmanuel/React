@@ -1,20 +1,16 @@
 
 import './App.css';
-import NavBar from './Component/NavBar';
+// import NavBar from './Component/NavBar';
 import { useState } from 'react';
 import Form from './Component/Form';
+import PackingList from './Component/PackingList';
 function App() {
-  const [number, setNumber] = useState(1)
-  const user = {
-    name: 'ose', age: 22
-  }
+  const [items, setItems] = useState([])
   return (
     <div>
       <header>
-        <NavBar user={user} />
-        <button onClick={() => setNumber(number + 1)}>Increment</button>
-        {number}
-        <Form />
+        <PackingList items={items} />
+        <Form items={items} setItems={setItems} />
       </header>
     </div>
   );
