@@ -15,8 +15,13 @@ const Form = ({ items, setItems }) => {
     }
     return (
         <div>
+            <select value={quatity} onChange={(e) => setQuatity(e.target.value)}>
+                {Array.from({ length: 20 }, (_, i) => i + 1).map(num => (
+                    <option key={num} value={num}>{num}</option>
+                ))}
+            </select>
             <input value={description} onChange={(e) => { setDescription(e.target.value) }} placeholder='Item.....' />
-            <input value={quatity} onChange={(e) => setQuatity(e.target.value)} />
+
             <button onClick={handleSubmit}>Add Item</button>
 
         </div>

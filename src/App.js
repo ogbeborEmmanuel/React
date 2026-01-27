@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <header>
-        <PackingList items={items} />
+        <PackingList items={items} setItems={setItems} />
         <Form items={items} setItems={setItems} />
       </header>
     </div>
