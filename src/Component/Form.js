@@ -14,8 +14,9 @@ const Form = ({ items, setItems }) => {
 
     }
     return (
-        <div>
-            <select value={quatity} onChange={(e) => setQuatity(e.target.value)}>
+        <div className='main'>
+            <h3> What do you want for your 😍 trip ?</h3>
+            <select className='' value={quatity} onChange={(e) => setQuatity(e.target.value)}>
                 {Array.from({ length: 20 }, (_, i) => i + 1).map(num => (
                     <option key={num} value={num}>{num}</option>
                 ))}

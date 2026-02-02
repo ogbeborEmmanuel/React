@@ -12,7 +12,10 @@ const PackingList = ({ items, setItems }) => {
     let sortedItems;
 
     const handleClearList = () => {
-        setItems([]);
+        const confirmed = window.confirm("Are you sure you want to clear the list?");
+        if (confirmed) {
+            setItems([]);
+        }
     }
 
     if (sortBy === "input") sortedItems = items;
@@ -31,7 +34,7 @@ const PackingList = ({ items, setItems }) => {
     console.log(sortBy);
     return (
         <>
-            <div>{sortedItems.map(item => <div style={item.packed ? { textDecoration: "line-through" } : {}} key={item.id}><input type="checkbox" value={item.packed} onChange={() => handleToggle(item.id)} />{item.description} {item.quatity}  <button onClick={() => deleteTask(item)}>X</button></div>)}</div>
+            <div >{sortedItems.map(item => <div style={item.packed ? { textDecoration: "line-through" } : {}} key={item.id}><input type="checkbox" value={item.packed} onChange={() => handleToggle(item.id)} />{item.description} {item.quatity}  <button onClick={() => deleteTask(item)}>X</button></div>)}</div>
             <Stats numberOfItems={numberOfItems} numberOfPackedItems={numberOfPackedItems} percentage={percentage} />
             <div className='actions'>
                 <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
